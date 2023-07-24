@@ -79,11 +79,12 @@ class HandTracker():
     def draw_landmarks(self, image: any) -> None:
         res = self.__infer(image)
         if res:
-            mp_draw.draw_landmarks(image, res, mp_hands.HAND_CONNECTIONS)
+            for hand_lms in res:
+                mp_draw.draw_landmarks(image, hand_lms, mp_hands.HAND_CONNECTIONS)
             
     def draw_speed_metrics(self, image: any) -> None:
         cv.putText(image, str(self.__current_speed), (50, 50), cv.FONT_HERSHEY_COMPLEX, 1, (255, 0, 0), 2, cv.LINE_AA)
-        cv.putText(image, direction_to_str(self.__curent_direction), (50, 50), cv.FONT_HERSHEY_COMPLEX, 1, (255, 0, 0), 2, cv.LINE_AA)
+        cv.putText(image, direction_to_str(self.__curent_direction), (50, 150), cv.FONT_HERSHEY_COMPLEX, 1, (255, 0, 0), 2, cv.LINE_AA)
     
     def update_current_speed_vector(self, image: any) -> None:
         res = self.__infer(image)

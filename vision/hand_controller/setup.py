@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='hand_controller',
+    name='handcontroller',
     version='1.1.0',
     description='A python script/service which helps to control screen actions with hands',
     author='sudogauss',
@@ -13,9 +13,9 @@ setup(
         'pyautogui',
         'pyyaml'
     ],
-    entry_point={
+    entry_points={
         'console_scripts': [
-            'hand_controller = hand_controller.main:run'
+            'hand-controller = handcontroller.main:run'
         ]
     },
 )
