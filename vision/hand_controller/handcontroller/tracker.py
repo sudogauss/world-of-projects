@@ -42,6 +42,9 @@ class HandTracker():
         
     def get_current_speed(self) -> float:
         return self.__current_speed
+    
+    def get_current_direction(self) -> Direction:
+        return self.__curent_direction
 
     def __infer(self, image: any) -> any:
         results = self.hand_detector.process(image)

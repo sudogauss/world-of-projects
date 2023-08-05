@@ -1,0 +1,11 @@
+[Unit]
+Description=Hand controller service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=hand-controller
+
+[Install]
+WantedBy=multi-user.target
